@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.aluras.mockupalgum.MainActivity"
+    tools:showIn="@layout/app_bar_main">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:text="@string/despesa"
+            android:id="@+id/textDespesa"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/rouded_corner"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:text="@string/receita"
+            android:id="@+id/textReceita"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:background="@drawable/rouded_corner"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:text="@string/transferencia"
+            android:id="@+id/textTransferencia"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:background="@drawable/rouded_corner"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/contas"
+        android:id="@+id/textView2"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:padding="5dp" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="3dp"
+        android:paddingRight="3dp"
+        android:id="@+id/linearLayout2">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="80dp">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:text="CC Banco do Brasil"
+                android:id="@+id/textView3"
+                android:layout_weight="1"
+                android:background="@drawable/rouded_corner"
+                android:gravity="bottom|right"
+                android:padding="5dp"
+                android:layout_margin="2dp"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:text="Cartão CEF"
+                android:id="@+id/textView4"
+                android:layout_weight="1"
+                android:background="@drawable/rouded_corner"
+                android:gravity="bottom|right"
+                android:padding="5dp"
+                android:layout_margin="2dp"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:text="Carteira"
+                android:id="@+id/textView5"
+                android:layout_weight="1"
+                android:background="@drawable/rouded_corner"
+                android:gravity="bottom|right"
+                android:padding="5dp"
+                android:layout_margin="2dp"
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:text="Vale Refeição"
+                android:id="@+id/textView6"
+                android:layout_weight="1"
+                android:background="@drawable/rouded_corner"
+                android:gravity="bottom|right"
+                android:padding="5dp"
+                android:layout_margin="2dp"
+                android:textColor="#ffffff" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.example.aluras.mockupalgum.customViews.PercentView
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:id="@+id/percent"
+        android:layout_below="@+id/linearLayout2"
+        app:value="80"
+        app:startColor="@color/receita"
+        app:endColor="@color/despesa"
+        android:padding="5dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentRight="false"
+        android:layout_alignParentBottom="false"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/percent"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="top"
+            android:layout_marginRight="5dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/despesasmes"
+                android:id="@+id/textView9" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/planejadomes"
+                android:id="@+id/textView10" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="right">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R$ 2.325,87"
+                android:id="@+id/textView7" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="R$ 6.234,98"
+                android:id="@+id/textView8" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

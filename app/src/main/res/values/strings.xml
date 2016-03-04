@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Algum</string>
+
+    <string name="despesa">Despesa</string>
+    <string name="receita">Receita</string>
+    <string name="transferencia">Transferência</string>
+    <string name="contas">Contas</string>
+    <string name="despesasmes">Despesas no mês</string>
+    <string name="planejadomes">Planejado</string>
+
+    <string name="navigation_drawer_open">Abrir menu de navegação</string>
+    <string name="navigation_drawer_close">Fechar menu de navegação</string>
+
+    <string name="action_settings">Settings</string>
+</resources>

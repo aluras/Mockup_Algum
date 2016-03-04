@@ -22,7 +22,7 @@ public class PercentView extends View {
     private int mEndColor = Color.GRAY;
     private int mBallColor = Color.BLACK;
     private int mBallExceedColor = Color.RED;
-    private int mValue = -1;
+    private float mValue = -1;
 
     private RectShape mRect;
 
@@ -51,7 +51,7 @@ public class PercentView extends View {
                 attrs, R.styleable.PercentView, defStyle, 0);
 
         if (a.hasValue(R.styleable.PercentView_value)) {
-            mValue = a.getInt(R.styleable.PercentView_value, mValue);
+            mValue = a.getFloat(R.styleable.PercentView_value, mValue);
         }
 
         if (a.hasValue(R.styleable.PercentView_startColor)) {
@@ -131,7 +131,7 @@ public class PercentView extends View {
                 paintCircle.setColor(mBallColor);
             }
 
-            float circleRadius = ((contentHeight * 3)/8) ;
+            float circleRadius = ((contentHeight * 4)/8) ;
             float circleX = (((rectRight-rectLeft)/100)*mValue)+paddingLeft+rectRadius;
             float circleY = (getHeight()/2);
 
@@ -144,7 +144,7 @@ public class PercentView extends View {
      *
      * @return The Value attribute value.
      */
-    public int getValue() {
+    public float getValue() {
         return mValue;
     }
 
@@ -153,7 +153,7 @@ public class PercentView extends View {
      *
      * @param value The Value attribute value to use.
      */
-    public void setValue(int value) {
+    public void setValue(float value) {
         mValue = value;
         invalidateAndMeasurements();
     }

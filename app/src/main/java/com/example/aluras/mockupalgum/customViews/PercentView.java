@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.LinearGradient;
 import android.graphics.Paint;
 import android.graphics.Shader;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.shapes.RectShape;
 import android.text.TextPaint;
 import android.util.AttributeSet;
@@ -21,8 +20,9 @@ import com.example.aluras.mockupalgum.R;
 public class PercentView extends View {
     private int mStartColor = Color.GRAY;
     private int mEndColor = Color.GRAY;
-    private Drawable mExampleDrawable;
-    private int mValue;
+    private int mBallColor = Color.BLACK;
+    private int mBallExceedColor = Color.RED;
+    private int mValue = -1;
 
     private RectShape mRect;
 
@@ -50,7 +50,9 @@ public class PercentView extends View {
         final TypedArray a = getContext().obtainStyledAttributes(
                 attrs, R.styleable.PercentView, defStyle, 0);
 
-        mValue = a.getInt(R.styleable.PercentView_value, mValue);
+        if (a.hasValue(R.styleable.PercentView_value)) {
+            mValue = a.getInt(R.styleable.PercentView_value, mValue);
+        }
 
         if (a.hasValue(R.styleable.PercentView_startColor)) {
             mStartColor = a.getColor(
@@ -64,16 +66,19 @@ public class PercentView extends View {
                     mEndColor);
         }
 
-        if (a.hasValue(R.styleable.PercentView_exampleDrawable)) {
-            mExampleDrawable = a.getDrawable(
-                    R.styleable.PercentView_exampleDrawable);
-            mExampleDrawable.setCallback(this);
+        if (a.hasValue(R.styleable.PercentView_ballColor)) {
+            mBallColor = a.getColor(
+                    R.styleable.PercentView_ballColor,
+                    mBallColor);
+        }
+
+        if (a.hasValue(R.styleable.PercentView_ballColorExceed)) {
+            mBallExceedColor = a.getColor(
+                    R.styleable.PercentView_ballColorExceed,
+                    mBallExceedColor);
         }
 
         a.recycle();
-
-        // Set up a default Rect object
-        mRect = new RectShape();
 
         // Update TextPaint and text measurements from attributes
         invalidateAndMeasurements();
@@ -97,8 +102,6 @@ public class PercentView extends View {
 //        p.setColor(Color.YELLOW);
 //        canvas.drawRect(0, 0, getWidth(), getHeight(), p);
 
-        // TODO: consider storing these as member variables to reduce
-        // allocations per draw cycle.
         int paddingLeft = getPaddingLeft();
         int paddingTop = getPaddingTop();
         int paddingRight = getPaddingRight();
@@ -118,32 +121,21 @@ public class PercentView extends View {
         paintRect.setShader(gradient);
         canvas.drawRoundRect(rectLeft, rectTop, rectRight, rectBottom, rectRadius, rectRadius, paintRect);
 
-        Paint paintCircle = new Paint();
+        if(mValue >= 0){
+            Paint paintCircle = new Paint();
 
-        if (mValue >= 100){
-            mValue = 100;
-            paintCircle.setColor(getResources().getColor(R.color.ballExcced));
-        }else{
-            paintCircle.setColor(getResources().getColor(R.color.ball));
-        }
+            if (mValue >= 100){
+                mValue = 100;
+                paintCircle.setColor(mBallExceedColor);
+            }else{
+                paintCircle.setColor(mBallColor);
+            }
 
-        float circleRadius = ((contentHeight * 3)/8) ;
-        float circleX = (((rectRight-rectLeft)/100)*mValue)+paddingLeft+rectRadius;
-        float circleY = (getHeight()/2);
+            float circleRadius = ((contentHeight * 3)/8) ;
+            float circleX = (((rectRight-rectLeft)/100)*mValue)+paddingLeft+rectRadius;
+            float circleY = (getHeight()/2);
 
-        canvas.drawCircle(circleX, circleY, circleRadius, paintCircle);
-
-        // Draw the text.
-//        canvas.drawText(mExampleString,
-//                paddingLeft + (contentWidth - mTextWidth) / 2,
-//                paddingTop + (contentHeight + mTextHeight) / 2,
-//                mTextPaint);
-
-        // Draw the example drawable on top of the text.
-        if (mExampleDrawable != null) {
-            mExampleDrawable.setBounds(paddingLeft, paddingTop,
-                    paddingLeft + contentWidth, paddingTop + contentHeight);
-            mExampleDrawable.draw(canvas);
+            canvas.drawCircle(circleX, circleY, circleRadius, paintCircle);
         }
     }
 
@@ -205,21 +197,41 @@ public class PercentView extends View {
     }
 
     /**
-     * Gets the example drawable attribute value.
+     * Gets the end color attribute value.
      *
-     * @return The example drawable attribute value.
+     * @return The end color attribute value.
      */
-    public Drawable getExampleDrawable() {
-        return mExampleDrawable;
+    public int getBallColor() {
+        return mBallColor;
     }
 
     /**
-     * Sets the view's example drawable attribute value. In the example view, this drawable is
-     * drawn above the text.
+     * Sets the view's end color attribute value
      *
-     * @param exampleDrawable The example drawable attribute value to use.
+     * @param ballColor The end color attribute value to use.
      */
-    public void setExampleDrawable(Drawable exampleDrawable) {
-        mExampleDrawable = exampleDrawable;
+    public void setBallColor(int ballColor) {
+        mBallColor = ballColor;
+        invalidateAndMeasurements();
     }
+
+    /**
+     * Gets the end color attribute value.
+     *
+     * @return The end color attribute value.
+     */
+    public int getBallColorExceed() {
+        return mBallExceedColor;
+    }
+
+    /**
+     * Sets the view's end color attribute value
+     *
+     * @param ballColorExceedColor The end color attribute value to use.
+     */
+    public void setBallColorExceed(int ballColorExceedColor) {
+        mBallExceedColor = ballColorExceedColor;
+        invalidateAndMeasurements();
+    }
+
 }

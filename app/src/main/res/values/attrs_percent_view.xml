@@ -3,6 +3,7 @@
         <attr name="value" format="integer" />
         <attr name="startColor" format="color" />
         <attr name="endColor" format="color" />
-        <attr name="exampleDrawable" format="color|reference" />
+        <attr name="ballColor" format="color" />
+        <attr name="ballColorExceed" format="color" />
     </declare-styleable>
 </resources>

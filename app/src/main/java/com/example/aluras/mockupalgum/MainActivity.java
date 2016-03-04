@@ -1,5 +1,6 @@
 package com.example.aluras.mockupalgum;
 
+import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -87,10 +88,13 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-/*
-        if (id == R.id.nav_camera) {
+
+        if (id == R.id.nav_contas) {
+            Intent contasIntent = new Intent(this, Contas.class);
+            startActivity(contasIntent);
+        }
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+/*        } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
 

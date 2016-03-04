@@ -13,4 +13,7 @@
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_contas">Contas</string>
+    <string name="title_activity_grupos">Grupos</string>
+    <string name="title_activity_edit_grupo">Novo Grupo</string>
+    <string name="title_activity_edit_conta">Nova Conta</string>
 </resources>

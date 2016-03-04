@@ -22,12 +22,41 @@
         </activity>
         <activity
             android:name=".Contas"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="@string/title_activity_contas"
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.aluras.mockupalgum.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Grupos"
+            android:label="@string/title_activity_grupos"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.aluras.mockupalgum.MainActivity" />
+        </activity>
+        <activity
+            android:name=".EditGrupo"
+            android:label="@string/title_activity_edit_grupo"
+            android:parentActivityName=".Grupos"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.aluras.mockupalgum.Grupos" />
+        </activity>
+        <activity
+            android:name=".EditConta"
+            android:label="@string/title_activity_edit_conta"
+            android:parentActivityName=".Contas"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.aluras.mockupalgum.Contas" />
         </activity>
     </application>
 

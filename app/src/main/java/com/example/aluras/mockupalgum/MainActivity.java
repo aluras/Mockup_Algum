@@ -92,6 +92,9 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_contas) {
             Intent contasIntent = new Intent(this, Contas.class);
             startActivity(contasIntent);
+        }else if (id == R.id.nav_grupos) {
+            Intent gruposIntent = new Intent(this, Grupos.class);
+            startActivity(gruposIntent);
         }
             // Handle the camera action
 /*        } else if (id == R.id.nav_gallery) {

@@ -7,12 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class Contas extends AppCompatActivity {
+public class Grupos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contas);
+        setContentView(R.layout.activity_grupos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -20,7 +20,7 @@ public class Contas extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent editGruposIntent = new Intent(view.getContext(), EditConta.class);
+                Intent editGruposIntent = new Intent(view.getContext(), EditGrupo.class);
                 startActivity(editGruposIntent);
             }
         });

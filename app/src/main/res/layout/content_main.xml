@@ -105,7 +105,8 @@
                 android:gravity="bottom|right"
                 android:padding="5dp"
                 android:layout_margin="2dp"
-                android:textColor="#ffffff" />
+                android:textColor="#ffffff"
+                android:clickable="true" />
 
             <TextView
                 android:layout_width="fill_parent"

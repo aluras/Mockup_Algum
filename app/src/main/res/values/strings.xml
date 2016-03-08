@@ -16,4 +16,5 @@
     <string name="title_activity_grupos">Grupos</string>
     <string name="title_activity_edit_grupo">Novo Grupo</string>
     <string name="title_activity_edit_conta">Nova Conta</string>
+    <string name="title_activity_lancamento_grupos">LancamentoGrupos</string>
 </resources>

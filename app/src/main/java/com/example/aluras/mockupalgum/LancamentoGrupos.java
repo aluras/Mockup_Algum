@@ -1,8 +1,10 @@
 package com.example.aluras.mockupalgum;
 
 import android.content.Intent;
-import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,17 +13,18 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-public class MainActivity extends AppCompatActivity
+public class LancamentoGrupos extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_lancamento_grupos);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -31,34 +34,6 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        //Define cores para os botões de tipo de lançamento
-        GradientDrawable gdDespesa = (GradientDrawable) findViewById(R.id.textDespesa).getBackground();
-        gdDespesa.setColor(getResources().getColor(R.color.despesa));
-        GradientDrawable gdReceita = (GradientDrawable) findViewById(R.id.textReceita).getBackground();
-        gdReceita.setColor(getResources().getColor(R.color.receitaDisable));
-        GradientDrawable gdTransferencia = (GradientDrawable) findViewById(R.id.textTransferencia).getBackground();
-        gdTransferencia.setColor(getResources().getColor(R.color.transferenciaDisable));
-
-
-        //TODO-Mock das contas - Tirar
-        GradientDrawable gdConta1 = (GradientDrawable) findViewById(R.id.textView3).getBackground();
-        gdConta1.setColor(getResources().getColor(R.color.tile1));
-        GradientDrawable gdConta2 = (GradientDrawable) findViewById(R.id.textView4).getBackground();
-        gdConta2.setColor(getResources().getColor(R.color.tile2));
-        GradientDrawable gdConta3 = (GradientDrawable) findViewById(R.id.textView5).getBackground();
-        gdConta3.setColor(getResources().getColor(R.color.tile3));
-        GradientDrawable gdConta4 = (GradientDrawable) findViewById(R.id.textView6).getBackground();
-        gdConta4.setColor(getResources().getColor(R.color.tile1));
-
-        View btnCaixa = (View) findViewById(R.id.textView4);
-        btnCaixa.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent lancamentoGruposIntent = new Intent(view.getContext(), LancamentoGrupos.class);
-                startActivity(lancamentoGruposIntent);
-            }
-        });
     }
 
     @Override
@@ -74,7 +49,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.lancamento_grupos, menu);
         return true;
     }
 
@@ -106,7 +81,7 @@ public class MainActivity extends AppCompatActivity
             Intent gruposIntent = new Intent(this, Grupos.class);
             startActivity(gruposIntent);
         }
-            // Handle the camera action
+        // Handle the camera action
 /*        } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -119,6 +94,7 @@ public class MainActivity extends AppCompatActivity
 
         }
 */
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

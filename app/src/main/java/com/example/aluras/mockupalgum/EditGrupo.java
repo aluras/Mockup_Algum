@@ -8,16 +8,13 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
-public class EditGrupo extends AppCompatActivity {
+public class EditGrupo extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_grupo);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        super.onCreateDrawer();
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
 

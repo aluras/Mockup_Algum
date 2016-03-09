@@ -8,139 +8,351 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.aluras.mockupalgum.MainActivity"
+    android:id="@+id/content_main"
     tools:showIn="@layout/app_bar_main">
 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout">
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:text="@string/despesa"
-            android:id="@+id/textDespesa"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:background="@drawable/rouded_corner"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:text="@string/receita"
-            android:id="@+id/textReceita"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:background="@drawable/rouded_corner"
-            android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp" />
-
-        <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:text="@string/transferencia"
-            android:id="@+id/textTransferencia"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:textColor="#ffffff"
-            android:background="@drawable/rouded_corner"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
-    </LinearLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/contas"
-        android:id="@+id/textView2"
-        android:layout_below="@+id/linearLayout"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:padding="5dp" />
-
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:paddingLeft="3dp"
-        android:paddingRight="3dp"
-        android:id="@+id/linearLayout2">
+        android:id="@+id/botoesContas">
 
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="80dp">
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:id="@+id/linearLayout">
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
-                android:text="CC Banco do Brasil"
-                android:id="@+id/textView3"
+                android:text="@string/despesa"
+                android:id="@+id/textDespesa"
                 android:layout_weight="1"
+                android:gravity="center"
                 android:background="@drawable/rouded_corner"
-                android:gravity="bottom|right"
-                android:padding="5dp"
-                android:layout_margin="2dp"
-                android:textColor="#ffffff" />
-
-            <TextView
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:text="Cartão CEF"
-                android:id="@+id/textView4"
-                android:layout_weight="1"
-                android:background="@drawable/rouded_corner"
-                android:gravity="bottom|right"
-                android:padding="5dp"
-                android:layout_margin="2dp"
                 android:textColor="#ffffff"
-                android:clickable="true" />
+                android:textStyle="bold"
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
-                android:text="Carteira"
-                android:id="@+id/textView5"
+                android:text="@string/receita"
+                android:id="@+id/textReceita"
                 android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#ffffff"
                 android:background="@drawable/rouded_corner"
-                android:gravity="bottom|right"
-                android:padding="5dp"
-                android:layout_margin="2dp"
-                android:textColor="#ffffff" />
+                android:layout_marginRight="5dp"
+                android:layout_marginLeft="5dp" />
 
             <TextView
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
-                android:text="Vale Refeição"
-                android:id="@+id/textView6"
+                android:text="@string/transferencia"
+                android:id="@+id/textTransferencia"
                 android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="#ffffff"
                 android:background="@drawable/rouded_corner"
-                android:gravity="bottom|right"
-                android:padding="5dp"
-                android:layout_margin="2dp"
-                android:textColor="#ffffff" />
-
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp" />
         </LinearLayout>
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/contas"
+            android:id="@+id/textView2"
+            android:layout_below="@+id/linearLayout"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:padding="5dp" />
+
+        <GridView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/gridViewContas"
+            android:layout_below="@+id/textView2"
+            android:columnWidth="80dp"
+            android:numColumns="auto_fit"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:horizontalSpacing="4dp"
+            android:verticalSpacing="4dp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:id="@+id/linearLayout2"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="80dp">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="CC Banco do Brasil"
+                    android:id="@+id/textView3"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Cartão CEF"
+                    android:id="@+id/textView4"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff"
+                    android:clickable="true" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Carteira"
+                    android:id="@+id/textView5"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Vale Refeição"
+                    android:id="@+id/textView6"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/botoesGrupos">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:id="@+id/linearLayout3" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nova despesa:"
+                android:id="@+id/textView52"
+                android:textColor="@color/despesa" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Conta: Cartão CEF - Saldo: - R$ 985,36"
+                android:id="@+id/textView53" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="80dp" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Alimentação"
+                    android:id="@+id/textView40"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Educação"
+                    android:id="@+id/textView41"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff"
+                    android:clickable="true" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Saúde"
+                    android:id="@+id/textView42"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Transporte"
+                    android:id="@+id/textView43"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="80dp" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Moradia"
+                    android:id="@+id/textView44"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Lazer"
+                    android:id="@+id/textView45"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff"
+                    android:clickable="true" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Dívidas"
+                    android:id="@+id/textView46"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Despesas Pessoais"
+                    android:id="@+id/textView47"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="80dp" >
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Despesas Financeiras"
+                    android:id="@+id/textView48"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Vestuário"
+                    android:id="@+id/textView49"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff"
+                    android:clickable="true" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:text="Outras"
+                    android:id="@+id/textView50"
+                    android:layout_weight="1"
+                    android:background="@drawable/rouded_corner"
+                    android:gravity="bottom|right"
+                    android:padding="5dp"
+                    android:layout_margin="2dp"
+                    android:textColor="#ffffff" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView51"
+                    android:layout_weight="1" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout2"
         android:layout_alignParentBottom="true"
         android:gravity="bottom">
 
@@ -148,7 +360,6 @@
             android:layout_width="wrap_content"
             android:layout_height="25dp"
             android:id="@+id/percent"
-            android:layout_below="@+id/linearLayout2"
             app:value="37.3"
             app:startColor="@color/receita"
             app:endColor="@color/despesa"
@@ -158,15 +369,10 @@
             android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="false"
-            android:layout_alignParentStart="false"
-            android:layout_alignParentRight="false"
-            android:layout_alignParentBottom="false"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/percent"
             android:layout_gravity="right"
             android:paddingRight="5dp"
-            android:layout_marginBottom="25dp">
+            android:layout_marginBottom="25dp"
+            android:baselineAligned="false">
 
             <LinearLayout
                 android:orientation="vertical"

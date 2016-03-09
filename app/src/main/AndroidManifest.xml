@@ -11,7 +11,7 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/app_name"
+            android:label="@string/title_activity_main"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -59,14 +59,9 @@
                 android:value="com.example.aluras.mockupalgum.Contas" />
         </activity>
         <activity
-            android:name=".LancamentoGrupos"
-            android:label="@string/title_activity_lancamento_grupos"
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.aluras.mockupalgum.MainActivity" />
-        </activity>
+            android:name=".BaseActivity"
+            android:label="@string/title_activity_base"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

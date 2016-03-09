@@ -8,16 +8,13 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 
-public class EditConta extends AppCompatActivity {
+public class EditConta extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_conta);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        super.onCreateDrawer();
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner2);
 

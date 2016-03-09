@@ -14,17 +14,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class LancamentoGrupos extends AppCompatActivity
+public class BaseActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_lancamento_grupos);
+
+    protected void onCreateDrawer() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -49,7 +45,7 @@ public class LancamentoGrupos extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.lancamento_grupos, menu);
+        getMenuInflater().inflate(R.menu.base, menu);
         return true;
     }
 
@@ -74,26 +70,17 @@ public class LancamentoGrupos extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_contas) {
-            Intent contasIntent = new Intent(this, Contas.class);
-            startActivity(contasIntent);
+        Intent intent = new Intent();
+
+        if (id == R.id.nav_lancamento) {
+            intent = new Intent(this, MainActivity.class);
+        }else if (id == R.id.nav_contas) {
+            intent = new Intent(this, Contas.class);
         }else if (id == R.id.nav_grupos) {
-            Intent gruposIntent = new Intent(this, Grupos.class);
-            startActivity(gruposIntent);
+            intent = new Intent(this, Grupos.class);
         }
-        // Handle the camera action
-/*        } else if (id == R.id.nav_gallery) {
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }
-*/
+        startActivity(intent);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

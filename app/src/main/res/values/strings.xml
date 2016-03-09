@@ -12,9 +12,12 @@
     <string name="navigation_drawer_close">Fechar menu de navegação</string>
 
     <string name="action_settings">Settings</string>
+    <string name="title_activity_main">Lançamento</string>
     <string name="title_activity_contas">Contas</string>
     <string name="title_activity_grupos">Grupos</string>
     <string name="title_activity_edit_grupo">Novo Grupo</string>
     <string name="title_activity_edit_conta">Nova Conta</string>
     <string name="title_activity_lancamento_grupos">LancamentoGrupos</string>
+    <string name="title_activity_base">BaseActivity</string>
+    <string name="title_activity_main2">Main2Activity</string>
 </resources>

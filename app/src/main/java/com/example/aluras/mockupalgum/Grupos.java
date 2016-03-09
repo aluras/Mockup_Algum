@@ -7,14 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class Grupos extends AppCompatActivity {
+public class Grupos extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_grupos);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        super.onCreateDrawer();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -24,7 +23,6 @@ public class Grupos extends AppCompatActivity {
                 startActivity(editGruposIntent);
             }
         });
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
 }

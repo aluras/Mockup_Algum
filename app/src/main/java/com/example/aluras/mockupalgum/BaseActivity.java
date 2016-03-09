@@ -1,10 +1,6 @@
 package com.example.aluras.mockupalgum;
 
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -78,6 +74,8 @@ public class BaseActivity extends AppCompatActivity
             intent = new Intent(this, Contas.class);
         }else if (id == R.id.nav_grupos) {
             intent = new Intent(this, Grupos.class);
+        }else if (id == R.id.nav_planejamento) {
+            intent = new Intent(this, PlanejamentoActivity.class);
         }
 
         startActivity(intent);

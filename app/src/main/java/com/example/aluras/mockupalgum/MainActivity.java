@@ -1,22 +1,13 @@
 package com.example.aluras.mockupalgum;
 
-import android.content.Intent;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.ListAdapter;
 
-import java.util.ArrayList;
+import com.example.aluras.mockupalgum.customAdapters.ContaAdapter;
+import com.example.aluras.mockupalgum.entities.Conta;
 
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -28,13 +19,14 @@ public class MainActivity extends BaseActivity
         super.onCreateDrawer();
 
         GridView gridContas = (GridView) findViewById(R.id.gridViewContas);
-        ArrayList<String> listContas = new ArrayList<String>();
-        listContas.add("CC Banco do Brasil");
-        listContas.add("Cartão CEF");
-        listContas.add("Carteira");
-        listContas.add("Vale Refeição");
+        Conta contas[] = new Conta[]{
+                new Conta("CC Banco do Brasil",R.color.tile1),
+                new Conta("Cartão CEF",R.color.tile2),
+                new Conta("Carteira",R.color.tile3),
+                new Conta("Vale Refeição",R.color.tile1)
+        };
 
-        ArrayAdapter<String> contasAdapter = new ArrayAdapter<String>(this,R.layout.tiles,listContas);
+        ContaAdapter contasAdapter = new ContaAdapter(this,R.layout.tiles, contas);
 
         gridContas.setAdapter(contasAdapter);
 

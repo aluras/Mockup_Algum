@@ -11,7 +11,7 @@
         <activity
             android:name=".MainActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="@string/title_activity_main"
+            android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -62,6 +62,31 @@
             android:name=".BaseActivity"
             android:label="@string/title_activity_base"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LancamentoGrupoActivity"
+            android:label="@string/title_activity_lancamento_grupos"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.aluras.mockupalgum.MainActivity" />
+        </activity>
+        <activity
+            android:name=".LancamentoValorActivity"
+            android:label="@string/title_activity_lancamento_valor"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PlanejamentoActivity"
+            android:label="@string/title_activity_planejamento"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ExtratoActivity"
+            android:label="@string/title_activity_extrato"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".SituacaoActivity"
+            android:label="@string/title_activity_situacao"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -119,7 +119,8 @@ public class PercentView extends View {
         Paint paintRect = new Paint();
         Shader gradient = new LinearGradient(rectLeft,rectTop,rectRight,rectBottom, mStartColor, mEndColor,Shader.TileMode.REPEAT);
         paintRect.setShader(gradient);
-        canvas.drawRoundRect(rectLeft, rectTop, rectRight, rectBottom, rectRadius, rectRadius, paintRect);
+        //canvas.drawRoundRect(rectLeft, rectTop, rectRight, rectBottom, rectRadius, rectRadius, paintRect);
+        canvas.drawRect(rectLeft, rectTop, rectRight, rectBottom, paintRect);
 
         if(mValue >= 0){
             Paint paintCircle = new Paint();

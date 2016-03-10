@@ -76,6 +76,10 @@ public class BaseActivity extends AppCompatActivity
             intent = new Intent(this, Grupos.class);
         }else if (id == R.id.nav_planejamento) {
             intent = new Intent(this, PlanejamentoActivity.class);
+        }else if (id == R.id.nav_extrato) {
+            intent = new Intent(this, ExtratoActivity.class);
+        }else if (id == R.id.nav_situacao) {
+            intent = new Intent(this, SituacaoActivity.class);
         }
 
         startActivity(intent);

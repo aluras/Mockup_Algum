@@ -10,12 +10,26 @@ import android.view.View;
 
 import com.example.aluras.mockupalgum.R;
 
+import java.util.HashMap;
+import java.util.Iterator;
+
 /**
  * TODO: document your custom view class.
  */
 public class GraficoBarraView extends View {
     private int mClosedColor = Color.GRAY;
+
+    private int colors[] = {
+            Color.parseColor("#1B7070"),
+            Color.parseColor("#BB2D2D"),
+            Color.parseColor("#BB6D2D"),
+            Color.parseColor("#249624"),
+            Color.parseColor("#3F2A81"),
+            Color.parseColor("#BBA32D")
+    };
+
     private int mSizePercent = 100;
+    private HashMap<String,Float> valores;
 
 
     public GraficoBarraView(Context context) {
@@ -62,13 +76,51 @@ public class GraficoBarraView extends View {
 
         float rectLeft = paddingLeft;
         float rectTop = paddingTop;
-        float rectRight = (contentWidth*(mSizePercent/100)) + paddingLeft;
+        float rectRight = ((contentWidth*mSizePercent)/100) + paddingLeft;
         float rectBottom = contentHeight + paddingTop;
+
+        rectBottom = 55;
 
         Paint paintRect = new Paint();
         paintRect.setColor(mClosedColor);
 
+        Paint paintText = new Paint();
+
         canvas.drawRect(rectLeft, rectTop, rectRight, rectBottom, paintRect);
+
+        if(valores != null){
+            float total = 0;
+            Iterator it = valores.entrySet().iterator();
+            while (it.hasNext()){
+                HashMap.Entry<String,Float> pair = (HashMap.Entry<String,Float>)it.next();
+                total += pair.getValue();
+            }
+
+            float linhaPos = rectBottom + 60;
+            float left = rectLeft;
+            int contador = 0;
+            it = valores.entrySet().iterator();
+            while(it.hasNext()){
+                HashMap.Entry<String,Float> pair2 = (HashMap.Entry<String,Float>)it.next();
+                paintRect.setColor(colors[contador%6]);
+                contador += 1;
+                float right = left + ((rectRight-rectLeft)*pair2.getValue())/total;
+                canvas.drawRect(left, rectTop + ((rectBottom - rectTop) * 0.2f), right,rectBottom,paintRect);
+                left += right-left;
+                canvas.drawCircle(rectLeft + 60, linhaPos,15f,paintRect);
+                paintText.setTextAlign(Paint.Align.LEFT);
+                paintText.setColor(Color.BLACK);
+                paintText.setTextSize(30);
+                canvas.drawText(pair2.getKey(), rectLeft + 100, linhaPos + 10, paintText);
+                paintText.setTextAlign(Paint.Align.RIGHT);
+                canvas.drawText("R$ " + pair2.getValue().toString(), contentWidth - 90, linhaPos + 10, paintText);
+                paintText.setColor(Color.GRAY);
+                paintText.setTextSize(20);
+                canvas.drawText("(" + String.format("%.2f", (pair2.getValue()/total)*100) + "%)", contentWidth, linhaPos + 10, paintText);
+                linhaPos += 60;
+
+            }
+        }
 
     }
 
@@ -86,5 +138,13 @@ public class GraficoBarraView extends View {
 
     public void setmSizePercent(int mSizePercent) {
         this.mSizePercent = mSizePercent;
+    }
+
+    public HashMap<String, Float> getValores() {
+        return valores;
+    }
+
+    public void setValores(HashMap<String, Float> valores) {
+        this.valores = valores;
     }
 }

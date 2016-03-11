@@ -20,4 +20,12 @@
     <color name="despesaDisable">#50DB5353</color>
     <color name="receitaDisable">#5042AF42</color>
     <color name="transferenciaDisable">#50DBC453</color>
+
+    <!-- Grafico de situação -->
+    <color name="situacao1">#1B7070</color>
+    <color name="situacao2">#BB2D2D</color>
+    <color name="situacao3">#BB6D2D</color>
+    <color name="situacao4">#249624</color>
+    <color name="situacao5">#3F2A81</color>
+    <color name="situacao6">#BBA32D</color>
 </resources>

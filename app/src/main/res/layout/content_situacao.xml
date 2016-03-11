@@ -51,7 +51,7 @@
 
     <com.example.aluras.mockupalgum.customViews.GraficoBarraView
         android:layout_width="wrap_content"
-        android:layout_height="35dp"
+        android:layout_height="fill_parent"
         android:id="@+id/graficoDespesa"
         android:layout_below="@+id/textView6"
         android:layout_alignParentLeft="true"
